@@ -11,7 +11,9 @@ use Doctrine\Common\Collections\Collection;
 #[ApiResource]
 class User extends Node
 {
+    #[ORM\Column(type: 'string', length: 255, nullable: false)]
     private string $username;
+    #[ORM\Column(type: 'string', length: 255, nullable: false)]
     private string $password;
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Post::class)]
     private Collection $posts;
@@ -63,6 +65,4 @@ class User extends Node
     {
         $this->posts = $posts;
     }
-
-
 }

@@ -1,6 +1,21 @@
 version: '3'
 
 services:
+  mysql:
+    container_name: mysql_dev
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: dev
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
+      MYSQL_ROOT_PASSWORD: root_password
+    expose:
+      - '3306'
+    ports:
+      - '3306:3306'
   php-fpm:
     container_name: php_dev
     build:
@@ -11,3 +26,6 @@ services:
       - APP_ENV=dev
     ports:
       - '8000:8000'
+volumes:
+  mysql-data: ~
+

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Rebuild MySQL schema
+php bin/console doctrine:schema:drop --force || exit 1
+php bin/console doctrine:schema:create || exit 1
+php bin/console doctrine:schema:update --force || exit 1
+

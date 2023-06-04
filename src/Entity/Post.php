@@ -12,6 +12,7 @@ class Post extends Node
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'posts')]
     #[ORM\JoinColumn(name: 'user_id', referencedColumnName: 'id', unique: true)]
     private User $user;
+    #[ORM\Column(type: 'string', length: 255, nullable: false)]
     private string $content;
 
     /**
