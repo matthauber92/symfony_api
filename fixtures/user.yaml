@@ -1,0 +1,9 @@
+App\Entity\User:
+  user:
+    id: 'e124d73e-d8ff-4ee3-97b4-73ee92b61c96'
+    username: 'user'
+    password: 'password'
+  user_test:
+    id: 'e324d73e-d8ff-4ee3-97b4-73ee92b61c96'
+    username: 'user'
+    password: 'password'

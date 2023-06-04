@@ -10,7 +10,7 @@ use Ramsey\Uuid\UuidInterface;
 abstract class Node
 {
     #[ORM\Id]
-    #[ORM\Column(name: 'id', type: 'uuid')]
+    #[ORM\Column(name: 'id', type: 'uuid', length: 36, nullable: false)]
     #[ApiProperty(identifier: true)]
     protected UuidInterface $id;
 
@@ -22,6 +22,14 @@ abstract class Node
     public function getId(): UuidInterface
     {
         return $this->id;
+    }
+
+    /**
+     * @param UuidInterface $id
+     */
+    public function setId(UuidInterface $id): void
+    {
+        $this->id = $id;
     }
 
     public function __clone()
